@@ -34,6 +34,25 @@ void insertEnd(Node **list, int data) {
   }
 }
 
+void insertInOrder(Node **list, int data) {
+  Node *new = (Node *) malloc(sizeof(Node));
+  if(new) {
+    Node *p, *q;
+    p = NULL; q = *list;
+    while(q != NULL && data > q->data) {
+      p = q;
+      q = q->next;
+    }
+    new->data = data;
+    new->next = q;
+    if(p == NULL) {
+      *list = new;
+    } else {
+      p->next = new;
+    }
+  }
+}
+ 
 void printList(Node *list) {
   if(list) {
     printf("%d -> ", list->data);
@@ -43,10 +62,10 @@ void printList(Node *list) {
 
 int main(void) {
   Node *list = NULL;
-  insertEnd(&list, 1);
-  insertEnd(&list, 2);
-  insertEnd(&list, 3);
-  insertEnd(&list, 4);
+  insertInOrder(&list, 30);
+  insertInOrder(&list, 2);
+  insertInOrder(&list, 10);
+  insertInOrder(&list, 400);
   printList(list);
   return 0;
 }
