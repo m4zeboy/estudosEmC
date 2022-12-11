@@ -6,6 +6,7 @@ typedef struct Node {
   struct Node *next;
 } Node;
 
+/* O(1) */
 void insertStart(Node **list, int data) {
   Node *new = (Node *) malloc(sizeof(Node));
   if(new) {
@@ -15,6 +16,7 @@ void insertStart(Node **list, int data) {
   }
 }
 
+/* O(n) */
 void insertEnd(Node **list, int data) {
   Node *new = (Node *) malloc(sizeof(Node));
   if(new) {
@@ -34,6 +36,7 @@ void insertEnd(Node **list, int data) {
   }
 }
 
+/* O(n) */
 void insertInOrder(Node **list, int data) {
   Node *new = (Node *) malloc(sizeof(Node));
   if(new) {
